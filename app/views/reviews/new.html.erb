@@ -1,0 +1,17 @@
+<% if @review.plant %>
+<h1>New review for <%= @review.plant.name%>!</h1>
+<% else %>
+<h1>New review!</h1>
+<% end %>
+
+<%= form_for([@review.plant,@review]) do |f|%>
+ <% if !@review.plant %>
+  <%= f.label :plant %>
+  <%= f.collection_select :plant_id, Plant.all, :id, :name %>
+<% else %>
+    <%= f.hidden_field :plant_id %>
+<% end %>
+ <%= f.label :rating %>  
+ <%= f.select(:rating, [1,2,3,4,5], :prompt => 'Rating (1-5)') %>
+ <%= f.submit %>
+<% end %>
