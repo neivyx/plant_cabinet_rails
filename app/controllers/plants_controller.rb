@@ -37,8 +37,8 @@ class PlantsController < ApplicationController
     end
 
 
-    def destory
-        @plant.destory
+    def destroy
+        @plant.destroy
         redirect_to plants_path
     end
     
