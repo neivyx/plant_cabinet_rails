@@ -10,3 +10,14 @@
         <%= @plant.watering %></p>
     <h4>By: <%=link_to @plant.user.name, user_path(@plant.user)%> </h4>
   </p>
+
+  <p><%= link_to 'Add a new review', new_plant_review_path(@plant)%></p>
+<% if !@plant.reviews.empty? %>
+  <p><%= link_to 'See all reviews', plant_reviews_path(@plant)%></p>
+  <h4>Most Recent reviews:</h4>
+  <% @plant.reviews.order(updated_at: :desc).limit(3).each do |r|%>
+    <li>
+      <strong><%= r.user.name%></strong> says "<%= link_to r.rating, plant_reviews_path(@plant,r) %>"
+    </li>
+  <% end %>
+  <% end %>
