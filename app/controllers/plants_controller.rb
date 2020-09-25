@@ -10,14 +10,15 @@ class PlantsController < ApplicationController
     def create
      @plant = current_user.plants.build(plant_params)
      if @plant.save
-        redirect_to @plant
+        redirect_to plant_path(@plant)
      else
         render :new
      end
     end
 
     def show
-        redirect_to plants_path if !@plant
+        @plant = Plant.find_by_id(params[:id])
+        # redirect_to plants_path if !@plant
     end
 
     def index
