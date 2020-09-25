@@ -20,18 +20,37 @@ class PlantsController < ApplicationController
     end
 
     def index
-        if params[:user_id] && @user = User.find_by_id(params[:user_id])
-           @plants = @user.plants.alpha
+          @plants = Plant.all
+    end
+
+    def edit 
+
+    end
+
+    def update
+        if @plant.update(plants_params)
+            redirect_to plant_path(@plant)
         else
-          @error = "That user doesn't exist" if params[:user_id]
-          @plants = Plant.alpha.includes(:category, :user)
+            render :edit
         end
-    
-       
+
+    end
+
+
+    def destory
+        @plant.destory
+        redirect_to plants_path
     end
     
+   private
 
+   def set_plant
+    @plant = Plant.find_by_id(params[:id])
 
+   end
 
+   def plant_params
+    params.require(:plant).permit(:name, :description, :location, :light_requirement, :watering, )
+   end
 
 end
