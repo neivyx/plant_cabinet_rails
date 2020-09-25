@@ -10,11 +10,7 @@
   </head>
 
   <body>
-    <%= yield %>
-  </body>
-</html>
-
-<% if logged_in %>
+  <% if logged_in? %>
 <%= link_to "Home", user_path(current_user.id), method:'get' %>
   <%= link_to "Add a Plant", new_plant_path %>
   <%= link_to "Add a Review", new_review_path %> 
@@ -24,3 +20,9 @@
 <% else %> <%=link_to "Sign Up", signup_path %> |      
 <%=link_to "Log In", login_path %> 
 <% end %>
+
+    <%= yield %>
+  </body>
+</html>
+
+
