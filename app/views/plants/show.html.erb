@@ -1,0 +1,11 @@
+
+<h1>This plant belongs to <%= @plant.user.name %> </h1>
+<%= render 'plant', plant: @plant %>
+<%= link_to 'Review this plant', new_plant_review_path(@plant) %>
+<h2>Last 3 Reviews</h2>
+<% @plant.reviews.last_3.each do |r| %>
+<p>Rating: <%= r.rating %></p>
+<p><%= r.content%></p>
+<p>- <%= r.user.name %></p>
+<% end %>
+<%= link_to 'See All Reviews for this plant', plant_reviews_path(@plant) %>
