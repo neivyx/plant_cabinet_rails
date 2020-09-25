@@ -1,5 +1,6 @@
 class PlantsController < ApplicationController
-
+    before_action :redirect_if_not_logged_in
+    before_action :set_project, only: [:edit, :update, :destroy]
 
     def new
      @plant = Plant.new
@@ -35,7 +36,6 @@ class PlantsController < ApplicationController
         end
 
     end
-
 
     def destroy
         @plant.destroy
