@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+
+  root "sessions#home"
+
+#users route
+get '/users/most-active' => 'users#most_active'
+
+
+
+ get '/signup' => 'users#new'
+ post '/signup' => 'users#create'
+
+ #login route
+ get '/login' => 'sessions#new'
+ post '/login' => 'sessions#create'
+
+ #logout route
+ delete '/logout' => 'sessions#destroy'
+ 
   resources :reviews
   resources :users
   resources :plants
