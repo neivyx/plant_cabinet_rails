@@ -1,0 +1,15 @@
+ <%= form_for([@plant, @review]) do |f| %>
+
+ <% if !@review.plant %>
+  <%= f.label :plant %>
+  <%= f.collection_select :plant_id, plant.all, :id, :title %>
+<% else %>
+    <%= f.hidden_field :plant_id %>
+<% end %>
+
+    <div class="range-field col s12">
+      <%= f.label :rating %>
+      <%=f.range_field :rating, in: 1..10, :step => 0.1%><br>
+    </div>
+
+    <% end %>
