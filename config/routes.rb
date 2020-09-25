@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   root "sessions#home"
 
 #users route
-get '/users/most-active' => 'users#most_active'
-
 
 
  get '/signup' => 'users#new'
@@ -16,7 +14,7 @@ get '/users/most-active' => 'users#most_active'
 
  #logout route
  delete '/logout' => 'sessions#destroy'
- 
+
   resources :reviews
   resources :users
   resources :plants
