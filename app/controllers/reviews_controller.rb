@@ -1,14 +1,19 @@
 class ReviewsController < ApplicationController
 
     def index
-        @plant = Plant.find(params[:plant_id])
+
+       if params[:plant_id] && @plant = Plant.find_by_id(params[:plant_id])
+        # @plant = Plant.find(params[:plant_id])
         @reviews = @plant.reviews
+       else
+        @review = Review.all
       end
+    end
       def show
         @review = Review.find(params[:id])
       end
       def new
-        @plant = Plant.find(params[:plant_id])
+        @plant = Plant.find_by_id(params[:plant_id])
         @review = Review.new
       end
 
@@ -34,7 +39,8 @@ class ReviewsController < ApplicationController
       
       private
       def review_params
-        params.require(:review).permit(:rating)
+        params.require(:review).permit(:rating, :plant_id, plant_attributes:[:name])
+    
       end
   
 
