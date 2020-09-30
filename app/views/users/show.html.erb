@@ -1,13 +1,22 @@
-<h1>Welcome <%=@user.name %></h1>
-
-
-<%= display_plants %>
-
-
-
-
-
-
+<h1> Welcome <%= "#{@user.name}" %></h1> 
+</div>
+<p><u> Plants and Reviews by <%=@user.name%> </u></p>
+</div>
+<p><u>Reviewed plants:</u></p>
+ <ol type =1 >
+  <% @user.reviewed_plants.each do |plant|%>
+  <li> <%= link_to plant.name, plant_path(plant)%></li>
+  <% end %>
+  </ol>
+</div>
+<div>
+<p><u>My Plants</u></p>
+<ol type =1 >
+  <% @user.plants.each do |plant|%>
+  <li> <%= link_to plant.name, plant_path(plant) %></p></li>
+  <% end %>
+</ol>
+</div>
 
 
 
