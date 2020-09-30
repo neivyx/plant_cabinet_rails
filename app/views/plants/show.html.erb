@@ -21,3 +21,14 @@
     </li>
   <% end %>
   <% end %>
+
+  <br>
+  <% if @plant.user == current_user %>
+    <%= link_to 'Edit', edit_plant_path(@plant) %> |
+    <%= link_to 'Delete', plant_path(@plant),method: :delete, data: { confirm: 'Are you sure you want to delete?' } %>
+ <br>
+ <% end %> 
+ <br>
+   <%= link_to 'Back', plants_path %>
+ 
+
