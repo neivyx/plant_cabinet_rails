@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get '/' => "sessions#welcome"
+
+
+  get '/' => "sessions#welcome", as:"root"
 
 #users route
 
