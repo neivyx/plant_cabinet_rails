@@ -1,4 +1,5 @@
  <%= form_for([@plant, @review]) do |f| %>
+ <%= render partial: "layouts/errors", locals: {object: @review} %>
 
  <% if !@review.plant %>
   <%= f.label :plant %>
