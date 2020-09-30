@@ -29,9 +29,9 @@ class ReviewsController < ApplicationController
         end
       end
       def create
-        @review = current_user.reviews.build(**review_params, plant_id: params[:plant_id])
+        @review = current_user.reviews.build(review_params)
         if @review.save
-          redirect_to redirect_to plant_reviews_path(@review.plant), notice: "Review successfully created."
+          redirect_to reviews_path
         else
           render :new
         end
@@ -41,6 +41,13 @@ class ReviewsController < ApplicationController
       def review_params
         params.require(:review).permit(:rating, :plant_id, plant_attributes:[:name])
     
+      end
+
+      def set_review
+        @review = review.find_by(id: params[:id])
+        if !@review
+          redirect_to reviews_path
+        end
       end
   
 
