@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_project, only: [:edit, :update, :destroy]
+    before_action :set_plant, only: [:edit, :update, :destroy]
 
     def new
      @plant = Plant.new
@@ -30,7 +30,7 @@ class PlantsController < ApplicationController
     end
 
     def update
-        if @plant.update(plants_params)
+        if @plant.update(plant_params)
             redirect_to plant_path(@plant)
         else
             render :edit
