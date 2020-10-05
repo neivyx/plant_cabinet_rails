@@ -4,7 +4,7 @@
   <h1>All Reviews</h1>
 <% end %>
 <ul>
-<% @review.each do |r|%>
+<% @reviews.each do |r|%>
   <li><%= r.user.name%> says "<%= r.rating%>" about this plant: <strong><%= link_to r.plant.name, plant_path(r.plant_id) %></strong></li>
 <% end %>
 </ul>
