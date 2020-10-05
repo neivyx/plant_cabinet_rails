@@ -1,6 +1,6 @@
 class PlantsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_plant, only: [:edit, :update, :destroy]
+    before_action :set_plant, only: [:show, :edit, :update, :destroy]
 
     def new
      @plant = Plant.new
@@ -17,11 +17,13 @@ class PlantsController < ApplicationController
     end
 
     def show
-        @plant = Plant.find_by_id(params[:id])
+        # @plant = Plant.find_by_id(params[:id])
         # redirect_to plants_path if !@plant
     end
 
-    def index
+    def index 
+        # binding.pry
+
           @plants = Plant.all
     end
 
@@ -30,7 +32,7 @@ class PlantsController < ApplicationController
     end
 
     def update
-        if @plant.update(plant_params)
+        if @plant.update(plants_params)
             redirect_to plant_path(@plant)
         else
             render :edit
