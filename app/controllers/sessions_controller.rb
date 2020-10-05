@@ -31,7 +31,9 @@ class SessionsController < ApplicationController
         #binding.pry
         redirect_to user_path(@user)
       end 
+      
       private 
+
       def auth
         request.env['omniauth.auth']
       end
