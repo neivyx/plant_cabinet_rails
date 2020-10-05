@@ -1,2 +1,5 @@
-<p>Rating: <%= @review.rating %></p>
-<p>- <%= @review.user.name %></p>
+<h2><%= @review.content%> - <%= @review.user.name%></h2>
+<% if @review.user == current_user %>
+  <%= link_to "Edit review", edit_review_path(@review)%>
+<% end %>
+<h4>Read the plant here: <%= link_to @review.plant.name, plant_path(@review.plant_id) %></h4>
