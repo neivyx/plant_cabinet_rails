@@ -1,11 +1,9 @@
   <h2> All Plants </h2>
-  
+   <ol type = 1 >
   <% @plants.each do |plant| %>
-    <ol start="1" >
     <li><%= link_to plant.name, plant_path(plant.id)%></li>
     <%= plant.user.name %> 
-      </ol>
       <% end %> 
-  
+     </ol>
 
 
