@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
         # @plant = Plant.find(params[:plant_id])
         @reviews = @plant.reviews
        else
-        @review = Review.all
+        @reviews = Review.all
       end
     end
       def show
