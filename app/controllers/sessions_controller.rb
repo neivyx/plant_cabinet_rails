@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
       end
 
       def google 
-        @user= User.find_or_create_with_oauth(auth)
+        @user = User.find_or_create_with_oauth(auth)
         session[:user_id] = @user.id
         #binding.pry
         redirect_to user_path(@user)
