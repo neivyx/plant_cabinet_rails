@@ -32,8 +32,8 @@ class PlantsController < ApplicationController
     end
 
     def update
-        if @plant.update(plants_params)
-            redirect_to plant_path(@plant)
+        if @plant.update(plant_params)
+            redirect_to plants_path(@plant)
         else
             render :edit
         end
