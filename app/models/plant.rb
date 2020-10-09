@@ -4,4 +4,7 @@ class Plant < ApplicationRecord
   has_many :users, through: :reviews
   
   validates :name, uniqueness: true, presence: true
+
+  scope :alpha, -> { order(:descending) }
+
 end
