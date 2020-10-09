@@ -5,6 +5,6 @@ class Plant < ApplicationRecord
   
   validates :name, uniqueness: true, presence: true
 
-  scope :alpha, -> { order(:descending) }
+  
 
 end
