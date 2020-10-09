@@ -22,9 +22,9 @@ class PlantsController < ApplicationController
     end
 
     def index 
-        # binding.pry
-
-          @plants = Plant.all
+        binding.pry
+         
+          @plants = Plant.All
     end
 
     def edit 
